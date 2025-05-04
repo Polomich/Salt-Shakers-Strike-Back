@@ -9,7 +9,7 @@ define c = Character('Clown', color="#259967")
 define a = Character("Athlète", color="#5068a1") #fille
 define i  = Character("Intello", color="#aac7e3")
 define r = Character("Rebelle", color="#b25853") #fille
-define p = Character("Enseignant", color="#fffff")
+define p = Character("Enseignant", color="#FFFFFF")
 
 # Le jeu commence ici
 label start:
@@ -179,10 +179,106 @@ label investigation:
     "L’homme est encore chaud au toucher. Aucune trace de rigidité n’est présente, ce qui indique que le décès a eu lieu au cours des trois dernières heures. Le train est parti il ​​y a deux heures, pile à l’heure, ce qui signifie que l’homme était vivant lorsqu’il est monté à bord."
     "Le visage est éclatant, ce qui suggère vraisemblablement une cause de décès, mais probablement due à une vie passée à hurler sur des jeunes turbulents. L’âge de cet homme est difficile à déterminer, bien qu’il se situe quelque part dans la moyenne de sa vie, à moins que l’éducation ne l’ait prématurément vieilli. Inutile de deviner sa profession : le costume démodé et la mallette indiquent clairement sa profession."
 
+    menu:
+        "Verifier son cou":
+            jump cou
+        "Verifier ses bras":
+            jump bras
+        "Verifier son sac":
+            jump sac
+        "Verifier son portefeuille":
+            jump paper
 
+label cou:
+    "Vous baissez le col de l’homme. Vos soupçons sont confirmés : une fine ligne rouge et menaçante se dessine autour de son cou. Elle est fine et constitue manifestement la cause du décès. Autour de son cou se trouve un petit crucifix en or suspendu à une chaîne, une arme du crime plausible ?"
+    "Vous regardez attentivement."
+    "Une petite zone de chair intacte est visible sur le côté du cou. Cet homme a été attaqué depuis le couloir."
 
+    menu:
+        "Verifier ses bras":
+            jump bras
+        "Verifier son sac":
+            jump sac
+        "Verifier son portefeuille":
+            jump paper
+        "Finir l'investigation":
+            jump interupt
 
+label bras:
+    "Cet homme ne présente aucune blessure défensive. Pas de sang sous les ongles, pas de peau et aucune trace de lutte. En résumé, une victime d’une passivité déprimante ; il dormait peut-être au moment des faits. Une montre à remontoir égrène les heures sans relâche, sans donner aucune indication sur l’heure du décès. Le coupable ne savait-il pas que la procédure standard pour les criminels était de briser l’objet ?"
+    "Vous regardez attentivement."
+    "Les ongles des mains sont exceptionnellement bien entretenus pour un universitaire et un homme. Il porte une alliance à un doigt ; vous êtes content de ne plus être dans la police ! Le côté déprimant du métier ne vous concerne plus. Il n’y a aucun dommage apparent au doigt autour de la bague. Si le mobile était le vol, le voleur n’a soit pas remarqué la bague, soit n’a pas tenté de l’enlever, soit savait que c’était peine perdue."
 
+    menu:
+        "Verifier son cou":
+            jump cou
+        "Verifier son sac":
+            jump sac
+        "Verifier son portefeuille":
+            jump paper
+        "Finir l'investigation":
+            jump interupt
 
+label sac:
+    " Le sac de l'homme contient une pochette de partitions et une liasse de feuilles d'exercices à moitié corrigées. Tout le contenu du sac est recouvert d'une fine couche de sel et de miettes de cacahuètes, qui se sont répandues d'un sac à moitié ouvert, jeté avec le reste des affaires. Le sac ne contient aucune indication discernable du nom ou de l'identité de l'homme."
+    "La poche avant du sac contient trois trombones, un emballage de chewing-gum rempli de chewing-gum mâché et un permis de conduire."
+    "François Merick \n1966-06-06 n\666 Rue Van Horne \nMontréal \nSexe M"
+    "Vous plissez les yeux en regardant l'homme, et son nom vous échappe. Pour vous, on l'appellera simplement l'enseignant."
+
+    menu:
+        "Verifier son cou":
+            jump cou
+        "Verifier ses bras":
+            jump bras
+        "Verifier son portefeuille":
+            jump paper
+        "Finir l'investigation":
+            jump interupt
+
+label paper:
+    "L'enseignant est mort, laissant les copies à moitié corrigées. Aucune n'a de très bonnes notes, et la note la plus élevée (un B+ attribué à un étudiant nommé Ned) est couverte de suggestions et de notes pointilleuses. La note la plus basse est un F avec deux signes moins, obtenu par une étudiante nommée Ruby. Il y a tellement de rouge sur la page qu'il est difficile de voir ce qui se passe en dessous. Les autres notes oscillent toutes entre C et D. La plupart sont des D. Soit les étudiants sont nuls, soit il est un correcteur sévère."
+
+    menu:
+        "Verifier son cou":
+            jump cou
+        "Verifier ses bras":
+            jump bras
+        "Verifier son sac":
+            jump sac
+        "Finir l'investigation":
+            jump interupt
+
+label interupt:
+    "Les élèves vous regardent par-dessus leur siège. Ils semblent méfiants et inquiets."
+
+    r "Dis donc, qu’est-ce que tu fais à notre prof ?"
+    i "Lache-le, pervers!"
+
+    cond "Votre professeur a été assassiné. Restez calmes et à votre place.."
+
+    "Les élèves vous regardent d’un air incrédule."
+
+    a "C’est une blague, monsieur ?"
+
+    cond "Non, votre professeur est mort."
+
+    i "JE SAVAIS QU'IL S'ÉTAIT PASSÉ QUELQUE CHOSE D'HORRIBLE ! C'EST UN MEURTRE ! LE MEURTRIER EST TOUJOURS PARMI NOUS ET ON ALLAIT TOUS MOURIR !!!!"
+
+    i "*Il fond en larmes.*"
+
+    "Les autres élèves se regardent d'un air absent."
+
+    cond "C'était un meurtre, mais vous n'avez rien à craindre. Je vous protégerai!"
+
+    r "Que fait-on maintenant ?"
+
+    cond "Reste où tu es pendant que j'appelle le 911."
+
+    i "On ne peut pas appeler le 911 ! J'ai déjà essayé !"
+    i "*Il montre son telephone sans reseau.*"
+
+    cond "*Ton téléphone n'a pas de réseau non plus, tu es coupé et seul.*"
+
+    cond "Restez où tu es. J'ai des questions pour vous tous."
 
 
