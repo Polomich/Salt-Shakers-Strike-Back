@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 17, in script
-    call screen arrowScreen
-ScriptError: could not find label ''.
+  File "game/script.rpy", line 172, in script
+    p "*Il est allongé, étrangement immobile. L’odeur dans l’air vous rappelle des souvenirs… Un souvenir de votre vie antérieure… De policier…*"
+Exception: Sayer 'p' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\main.py", line 652, in main
-    run(restart)
-  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\main.py", line 148, in run
-    renpy.execution.run_context(True)
-  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\execution.py", line 958, in run_context
-    context.run()
-  File "game/script.rpy", line 17, in script
-    call screen arrowScreen
-  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label ''.
+  File "game/script.rpy", line 172, in script
+    p "*Il est allongé, étrangement immobile. L’odeur dans l’air vous rappelle des souvenirs… Un souvenir de votre vie antérieure… De policier…*"
+  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\ast.py", line 2586, in execute
+    Say.execute(self)
+  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\ast.py", line 583, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\michp\Downloads\renpy-8.3.7-sdk\renpy\ast.py", line 472, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'p' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.7.25031702
 Meurtre dans le Montreal Express 1.0
-Sat May  3 17:42:18 2025
+Sun May  4 14:25:53 2025
