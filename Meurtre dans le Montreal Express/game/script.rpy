@@ -281,4 +281,13 @@ label interupt:
 
     cond "Restez où tu es. J'ai des questions pour vous tous."
 
+    menu:
+        "Continuer l'investigation":
+            jump cont 
+
+label cont:
+    scene train luggage
+
+    cond "..."
+
 
